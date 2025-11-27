@@ -33,9 +33,8 @@ Antes de tudo, instale:
 
 ## 🚀 Como Rodar o Projeto
 
-### 🔹 1. Clone o repositório
-
 ```bash
+1. CLONAR PROJETO
 git clone https://github.com/SEU_USUARIO/projetoEstudosLaravel.git
 cd projetoEstudosLaravel
 
