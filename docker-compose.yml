@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Seu site PHP
+  app:
+    build: .
+    container_name: meu-php-app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - minha-rede
+
+  # O Banco de Dados
+  db:
+    image: mysql:8.0
+    container_name: meu-mysql-server
+    environment:
+      # Agora ele pega os valores do arquivo .env
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD} # Vamos criar essa var nova
+    ports:
+      - "3306:3306"
+    volumes:
+      - dados-mysql:/var/lib/mysql
+    networks:
+      - minha-rede
+
+  # O Gerenciador Visual (NOVO!)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: meu-gerenciador-db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD} # Usa a mesma var do root
+    ports:
+      - "8081:80"
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
+    driver: bridge
+
+volumes:
+  dados-mysql:
