@@ -14,12 +14,6 @@ use Prettus\Repository\Traits\TransformableTrait;
 class User extends Model implements Transformable
 {
     use TransformableTrait;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [];
 
 }
