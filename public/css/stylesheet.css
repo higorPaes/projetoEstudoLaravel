@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+    border: none;
+
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing:border-box;
+            -box-sizing:border-box;        
+}
+
+/* 
+   *=====================================================================================
+    * Stylesheet to login pages
+   *=====================================================================================
+*/
+
+div.background{
+    position: absolute;
+    left: 0;
+    width: calc(100% - 400px);
+    height: 100%;
+    background-image: url(../assets/images/bckimg.jpg);
+    background-size: cover;
+}
+section#content-view{
+    float: right;
+    width: 400px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background-color: #282828;
+    padding: 20px;
+} 
+
+section#content-view h1{
+    font: 3em 'Fredoka One', cursive;
+    color: #f3f3f3;
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+}
+
+section#content-view h3,
+section#content-view form p{
+    font: .8em 'Fredoka One', cursive;
+    color: #f3f3f3;
+    float: left;
+    width: 100%;
+}
+
+section#content-view form,
+section#content-view form label{
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+section#content-view form{
+    margin-top: 40px;
+}
+
+section#content-view form p{
+    font-size: 1.25em;
+} 
+
+section#content-view form [type="submit"],
+section#content-view form label input{
+    float: left;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 20px;
+    border-radius: 2px solid #529acb;
+    color: #959595;
+    font: 1em 'Arial';
+} 
+
+section#content-view form [type="submit"]{
+    background: #b06706;
+    text-align: center;
+    font: 1em 'Freedoka One', cursive;
+    width: 60%;
+    float: right;
+    color: #f9f9f9;
+}

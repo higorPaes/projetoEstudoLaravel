@@ -37,6 +37,16 @@ return new class extends Migration
 			$table->timestamps(); //cria 2 campos (created_at, updated_at)
 			$table->softDeletes();//caso o registro for apagado, ele continua no banco mas para aplicação
 		});
+
+
+		Schema::create('sessions', function (Blueprint $table) {
+			$table->string('id')->primary();
+			$table->foreignId('user_id')->nullable()->index();
+			$table->string('ip_address', 45)->nullable();
+			$table->text('user_agent')->nullable();
+			$table->longText('payload');
+			$table->integer('last_activity')->index();
+		});
 	}
 
 	/**
@@ -46,9 +56,10 @@ return new class extends Migration
 	 */
 	public function down()
 	{	
-		Schema::table('users', function(Blueprint $table){
-			
-		});
-		Schema::drop('users');
+		// Apaga a tabela de sessões
+        Schema::dropIfExists('sessions');
+        
+        // Apaga a tabela de usuários
+        Schema::dropIfExists('users');
 	}
 };

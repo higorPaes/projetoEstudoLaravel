@@ -18,8 +18,13 @@ class Controller
     }
 
 
+
+    /*
+    * Method user login and view
+    * ===========================================
+    */
     public function login()
-    {
-        return "aqui seria a tela de login";
+    {   
+        return view('user.login');
     }
 }
