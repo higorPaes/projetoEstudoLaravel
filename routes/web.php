@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 
@@ -13,4 +14,6 @@ Route::get('/cadastro', [Controller::class, 'cadastrar']);
 * ===========================================
 */
 Route::get('/login', [Controller::class, 'login']);
-Route::post('/login', [Controller::class, 'login'])->name('user.login');
+Route::post('/login', [DashboardController::class, 'auth'])->name('user.login');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
+
